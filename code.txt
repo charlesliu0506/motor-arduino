@@ -1,0 +1,53 @@
+void setup() {
+  // Set up GPIO and serial monitor
+  pinMode(13, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  // LOL do what you want
+}
+
+void spinlong(float length) {
+  // To be used for spintimes of 2 seconds or longer
+  Serial.println("Spin start");
+  int time = (int) length * 1000;
+  spin(time - 700, 700);
+  Serial.println("Spin end");
+}
+
+void spin2() {
+  // Spin 2 seconds
+  Serial.println("Spin start");
+  spin(1300, 700);
+  Serial.println("Spin end");
+}
+
+void spin1() {
+  // Spin for 1 second
+  Serial.println("Spin start");
+  spin(400, 600);
+  Serial.println("Spin end");
+}
+
+void spinh() {
+  // Spin weakly for 1/2 second
+  Serial.println("Spin start");
+  spin(105, 395);
+  Serial.println("Spin end");
+}
+
+void spinq() {
+  // Twitch feebly (1/4 second)
+  Serial.println("Spin start");
+  spin(50, 200);
+  Serial.println("Spin end");
+}
+
+void spin(int on, int off) {
+  // Main spin function
+  digitalWrite(13, HIGH);
+  delay(on);
+  digitalWrite(13, LOW);
+  delay(off);
+}
